@@ -8,7 +8,7 @@ import dosuInvites from '@/helpers/dosuInvites'
 @Controller('/')
 export default class LoginController {
   @Post('/allowlist')
-  async facebook(@Body({ required: true }) { address }: AddressBody) {
+  async addAddress(@Body({ required: true }) { address }: AddressBody) {
     let allowedAddress = await AllowedAddressModel.findOne({ address })
     if (!allowedAddress) {
       allowedAddress = await AllowedAddressModel.create({ address })
@@ -22,7 +22,7 @@ export default class LoginController {
   }
 
   @Put('/merkle-tree')
-  async updateMerkleTree() {
+  async updateMerkleTreeRoot() {
     const addresses = (await AllowedAddressModel.find()).map((a) => a.address)
     const merkleTree = new MerkleTree(addresses, utils.keccak256, {
       sortPairs: true,
