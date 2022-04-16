@@ -1,6 +1,9 @@
 import { AllowedAddressModel } from '@/models/AllowedAddress'
 import { Body, Controller, Get, Post, Put } from 'amala'
+import { MerkleTree } from 'merkletreejs'
+import { utils } from 'ethers'
 import AddressBody from '@/validators/AddressBody'
+import dosuInvites from '@/helpers/dosuInvites'
 
 @Controller('/')
 export default class LoginController {
@@ -19,7 +22,20 @@ export default class LoginController {
   }
 
   @Put('/merkle-tree')
-  updateMerkleTree() {
-    return { updated: false }
+  async updateMerkleTree() {
+    const addresses = (await AllowedAddressModel.find()).map((a) => a.address)
+    const merkleTree = new MerkleTree(addresses, utils.keccak256, {
+      sortPairs: true,
+      hashLeaves: true,
+    })
+    const currentContractMerkleTreeRoot =
+      await dosuInvites.allowlistMerkleRoot()
+    const needsUpdating =
+      currentContractMerkleTreeRoot !== merkleTree.getRoot().toString()
+    if (needsUpdating) {
+      const tx = await dosuInvites.setAllowlistMerkleRoot(merkleTree.getRoot())
+      await tx.wait()
+    }
+    return { updated: needsUpdating }
   }
 }

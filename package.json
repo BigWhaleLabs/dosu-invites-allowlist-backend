@@ -14,14 +14,17 @@
     "lint": "yarn pretty && eslint --max-warnings 0 --ext ts,tsx,json src"
   },
   "dependencies": {
+    "@big-whale-labs/dosu-invites-contract": "^0.0.9",
     "@hapi/boom": "^9.1.4",
     "@koa/cors": "^3.3.0",
     "amala": "^8.0.2",
     "dotenv": "^16.0.0",
     "envalid": "^7.3.1",
+    "ethers": "^5.6.4",
     "koa": "^2.13.4",
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^10.1.1",
+    "merkletreejs": "^0.2.31",
     "mongoose": "^6.3.0"
   },
   "devDependencies": {

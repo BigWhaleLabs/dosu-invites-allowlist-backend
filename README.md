@@ -22,5 +22,7 @@ And you should be good to go! Feel free to fork and submit pull requests.
 | `PORT`                       | Port to run server on (defaults to 1337) |
 | `CONTRACT_ADDRESS`           | Address of the contract                  |
 | `CONTRACT_OWNER_PRIVATE_KEY` | Private key of the contract owner        |
+| `ETH_NETWORK`                | Ethereum network to connect to           |
+| `INFURA_ID`                  | Infura ID to connect to                  |
 
 Also, please, consider looking at `.env.sample`.
