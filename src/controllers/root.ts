@@ -1,6 +1,7 @@
 import { AllowedAddressModel } from '@/models/AllowedAddress'
 import { Body, Controller, Flow, Get, Post, Put } from 'amala'
 import { MerkleTree } from 'merkletreejs'
+import { keccak256 } from 'ethers/lib/utils'
 import AddressBody from '@/validators/AddressBody'
 import authenticate from '@/middlewares/authenticate'
 import dosuInvites from '@/helpers/dosuInvites'
@@ -28,7 +29,7 @@ export default class RootController {
   @Flow(authenticate)
   async updateMerkleTreeRoot() {
     const addresses = (await AllowedAddressModel.find()).map((a) => a.address)
-    const merkleTree = new MerkleTree(addresses, undefined, {
+    const merkleTree = new MerkleTree(addresses, keccak256, {
       sortPairs: true,
       hashLeaves: true,
     })
