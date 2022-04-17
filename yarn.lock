@@ -5,10 +5,10 @@ __metadata:
   version: 5
   cacheKey: 8
 
-"@big-whale-labs/dosu-invites-contract@npm:^0.0.9":
-  version: 0.0.9
-  resolution: "@big-whale-labs/dosu-invites-contract@npm:0.0.9"
-  checksum: cffe0bba79a1479436d9f639cea147dcad7886f9e8e23a2932070a82aa27ef4db0c77f97e06a3da618d3c3feaeb945b9b273b73507ac357eaf2adb25f03b00f4
+"@big-whale-labs/dosu-invites-contract@npm:^0.0.10":
+  version: 0.0.10
+  resolution: "@big-whale-labs/dosu-invites-contract@npm:0.0.10"
+  checksum: 8d3d954cf1fba22d21f98a1612f5b2420e03d3194260763d59870c4036eb63b853910e9cf1bebc26743c9ec1279ab114cc4bcec001f02eade84c9a79bdbbd529
   languageName: node
   linkType: hard
 
@@ -1695,7 +1695,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dosu-invites-allowlist@workspace:."
   dependencies:
-    "@big-whale-labs/dosu-invites-contract": ^0.0.9
+    "@big-whale-labs/dosu-invites-contract": ^0.0.10
     "@hapi/boom": ^9.1.4
     "@koa/cors": ^3.3.0
     "@typegoose/typegoose": ^9.8.0

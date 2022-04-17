@@ -1,6 +1,6 @@
 import { IsEthereumAddress } from 'amala'
 
-export default class FacebookLogin {
-  @IsEthereumAddress()
-  address!: string
+export default class AdressBody {
+  @IsEthereumAddress({ each: true })
+  addresses!: string[]
 }
