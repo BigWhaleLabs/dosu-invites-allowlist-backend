@@ -1,4 +1,4 @@
-import { DosuInvites__factory } from '@big-whale-labs/dosu-invites-contract/typechain'
+import { DosuInvites__factory } from '@big-whale-labs/dosu-invites-contract'
 import contractOwnerWallet from '@/helpers/contractOwnerWallet'
 import env from '@/helpers/env'
 
