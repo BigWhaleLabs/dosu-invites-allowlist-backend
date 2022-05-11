@@ -1,9 +1,9 @@
 {
-  "name": "dosu-invites-allowlist",
+  "name": "dosu-invites-allowlist-backend",
   "version": "1.0.0",
   "description": "Dosu Invites allowlist backend",
   "main": "dist/server.js",
-  "repository": "https://github.com/BigWhaleLabs/dosu-invites-allowlist",
+  "repository": "https://github.com/BigWhaleLabs/dosu-invites-allowlist-backend",
   "license": "MIT",
   "scripts": {
     "distribute": "yarn build-ts && node dist/server.js",
