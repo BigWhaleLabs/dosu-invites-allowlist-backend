@@ -49,6 +49,7 @@ export default class RootController {
       console.log('Updating merkle tree root to', newRoot)
       const tx = await dosuInvites.setAllowlistMerkleRoot(newRoot)
       await tx.wait()
+      console.log('Merkle tree root updated!')
     }
     return { updated: needsUpdating }
   }
