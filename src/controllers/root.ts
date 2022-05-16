@@ -11,11 +11,14 @@ export default class RootController {
   @Post('/allowlist')
   @Flow(authenticate)
   async addAddress(@Body({ required: true }) { addresses }: AddressBody) {
+    console.log(`POST /allowlist: ${addresses}`)
     for (const address of addresses) {
       let allowedAddress = await AllowedAddressModel.findOne({ address })
       if (!allowedAddress) {
+        console.log(`Adding address: ${address}`)
         allowedAddress = await AllowedAddressModel.create({ address })
       }
+      console.log(`Allowed address ${allowedAddress.address}`)
     }
     return { success: true }
   }
