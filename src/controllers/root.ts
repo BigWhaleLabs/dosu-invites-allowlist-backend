@@ -31,14 +31,18 @@ export default class RootController {
   @Put('/merkle-tree')
   @Flow(authenticate)
   async updateMerkleTreeRoot() {
+    console.log('Updating merkle tree root...')
     const addresses = (await AllowedAddressModel.find()).map((a) => a.address)
+    console.log(`Found ${addresses.length} addresses: ${addresses}`)
     const merkleTree = new MerkleTree(addresses, keccak256, {
       sortPairs: true,
       hashLeaves: true,
     })
     const currentContractMerkleTreeRoot =
       await dosuInvites.allowlistMerkleRoot()
+    console.log(`Current merkle tree root: ${currentContractMerkleTreeRoot}`)
     const newRoot = merkleTree.getHexRoot()
+    console.log(`New merkle tree root: ${newRoot}`)
     const needsUpdating = currentContractMerkleTreeRoot !== newRoot
     if (needsUpdating) {
       console.log('Updating merkle tree root to', newRoot)
