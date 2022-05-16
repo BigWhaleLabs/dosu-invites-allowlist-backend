@@ -38,11 +38,12 @@ export default class RootController {
       sortPairs: true,
       hashLeaves: true,
     })
+    const newRoot = merkleTree.getHexRoot()
+    console.log(`New merkle tree root: ${newRoot}`)
+    console.log('Getting the current merkle tree root...')
     const currentContractMerkleTreeRoot =
       await dosuInvites.allowlistMerkleRoot()
     console.log(`Current merkle tree root: ${currentContractMerkleTreeRoot}`)
-    const newRoot = merkleTree.getHexRoot()
-    console.log(`New merkle tree root: ${newRoot}`)
     const needsUpdating = currentContractMerkleTreeRoot !== newRoot
     if (needsUpdating) {
       console.log('Updating merkle tree root to', newRoot)
