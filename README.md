@@ -16,14 +16,14 @@ And you should be good to go! Feel free to fork and submit pull requests.
 
 ## Environment variables
 
-| Name                         | Description                              |
-| ---------------------------- | ---------------------------------------- |
-| `MONGO`                      | URL of the mongo database                |
-| `PORT`                       | Port to run server on (defaults to 1337) |
-| `CONTRACT_ADDRESS`           | Address of the contract                  |
-| `CONTRACT_OWNER_PRIVATE_KEY` | Private key of the contract owner        |
-| `ETH_NETWORK`                | Ethereum network to connect to           |
-| `ETH_RPC`                    | Ethereum node RPC URI                    |
-| `PASSWORD`                   | Password for protected routes            |
+| Name                            | Description                                                 |
+| ------------------------------- | ----------------------------------------------------------- |
+| `MONGO`                         | URL of the mongo database                                   |
+| `PORT`                          | Port to run server on (defaults to 1337)                    |
+| `DOSU_INVITES_CONTRACT_ADDRESS` | Address of the contract (defaults to @bwl/constants)        |
+| `CONTRACT_OWNER_PRIVATE_KEY`    | Private key of the contract owner                           |
+| `ETH_NETWORK`                   | Ethereum network to connect to (defaults to @bwl/constants) |
+| `ETH_RPC`                       | Ethereum node RPC URI (defaults to @bwl/constants)          |
+| `PASSWORD`                      | Password for protected routes                               |
 
 Also, please, consider looking at `.env.sample`.
